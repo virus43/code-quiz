@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Code Quiz</title>
 </head>
 <body>
-    
+    <div class="jumbotron text-center">
+        <h1>Coding Quiz Challenge</h1>
+        <br>
+        <button id="begin" class="btn btn-danger btn-lg">Begin</button>
+        <br><br>
+        <button id="view-highscores" class="btn btn-link">View Highscores</button>
+        <br>
+        <div>Time: <span id="timer">60</span></div>
+    </div>
+
+    <div class='container'> 
+        <div class='row'>
+            <div class="col-md-8 mx-auto center" id="quiz-box">
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>
