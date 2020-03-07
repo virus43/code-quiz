@@ -11,22 +11,34 @@ var highscores = [];
 
 var questions = [
 	{
-		question: "What is 10/2?",
+		question: "Inside which HTML element do we put the JavaScript?",
 		answers: [
-			'3',
-			'5',
-			'115'
+			'<scripting>',
+			'<script>',
+			'<js>',
+			'<javascript>'
+		],
+		correctAnswer: 3
+	},
+	{
+		question: "Which built-in method combines the text of two strings and returns a new string?",
+		answers: [
+			'append()',
+			'concat()',
+			'attach()',
+			'None of the above'
 		],
 		correctAnswer: 1
 	},
 	{
-		question: "What is 30/3?",
+		question: "Which of the following function of Array object adds one or more elements to the end of an array and returns the new length of the array?",
 		answers: [
-			'3',
-			'5',
-			'10'
+			'pop()',
+			'push()',
+			'join()',
+			'map()'
 		],
-		correctAnswer: 2
+		correctAnswer: 1
 	}
 ];
 
@@ -170,6 +182,10 @@ function quizComplete() {
 
 function startTimer() {
 
+	if (quizContainer.childNodes.length >1) {
+		quizContainer.removeChild(quizContainer.firstElementChild);
+	}
+
 	if (time === 60){
 		showQuestion(question);
 		interval = setInterval(function() {
@@ -191,7 +207,7 @@ beginButton.addEventListener("click",startTimer);
 highscoreButton.addEventListener("click",showHighscores);
 
 function showHighscores() {
-	console.log("hello");
+
 	if (quizContainer.childNodes.length >1) {
 		quizContainer.removeChild(quizContainer.firstElementChild);
 	}
@@ -221,5 +237,22 @@ function showHighscores() {
 		tr.appendChild(td2);
 		tbody.appendChild(tr);
 	}
+
 	quizContainer.appendChild(tbody);
+
+	var clearButton = document.createElement("button");
+	clearButton.className = "btn btn-primary answerBtn";
+	clearButton.textContent = "Clear";
+	quizContainer.appendChild(clearButton);
+
+	clearButton.addEventListener("click",clearFunction);
+	
+	function clearFunction () {
+		localStorage.clear();
+		while (quizContainer.childNodes.length >1) {
+			quizContainer.removeChild(quizContainer.firstElementChild);
+		}
+
+	}
+
  }
